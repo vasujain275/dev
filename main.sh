@@ -35,10 +35,6 @@ list_modules() {
     log_info "  Desktop environment:"
     echo "    hyprland audio bluetooth"
     
-    # List browser modules
-    log_info "  Browsers:"
-    echo "    brave firefox"
-    
     # List development modules
     log_info "  Development:"
     echo "    dev-base docker java node rust neovim"
@@ -67,10 +63,6 @@ is_valid_module() {
             
         # Desktop
         hyprland|audio|bluetooth)
-            return 0 ;;
-            
-        # Browsers
-        brave|firefox)
             return 0 ;;
             
         # Development
@@ -138,12 +130,6 @@ run_module() {
             script_path="modules/desktop/audio.sh" ;;
         bluetooth)
             script_path="modules/desktop/bluetooth.sh" ;;
-            
-        # Browsers
-        brave)
-            script_path="modules/browsers/brave.sh" ;;
-        firefox)
-            script_path="modules/browsers/firefox.sh" ;;
             
         # Development
         dev-base)
@@ -235,9 +221,6 @@ main() {
         run_module "audio"
         run_module "bluetooth"
         
-        # Browsers
-        run_module "brave"
-        run_module "firefox"
         
         # Development tools
         run_module "dev-base"

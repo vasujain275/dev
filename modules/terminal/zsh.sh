@@ -37,7 +37,7 @@ install_packages \
 # Change default shell to ZSH
 log_subsection "Setting ZSH as default shell"
 current_shell=$(getent passwd $USER | cut -d: -f7)
-zsh_path=$(which zsh)
+zsh_path="/usr/bin/zsh"
 
 if [ "$current_shell" != "$zsh_path" ]; then
     log_info "Changing default shell to ZSH"
